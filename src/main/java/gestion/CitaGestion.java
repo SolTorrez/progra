@@ -25,11 +25,11 @@ public class CitaGestion {
             sentencia.setObject(6, cita.getHora());
             
             int fila = sentencia.executeUpdate();
-            return fila > 0; //retorna true si hay un número de fila >0...
+            return fila > 0; 
         } catch (SQLException ex) {
             Logger.getLogger(CitaGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;  //devuelve falso... llegado a este punto...
+        return false;  
     }
 
     private static final String SQL_UPDATE_CITA = "update estudiante set nombreMascota=?, razaMascota=?,"
@@ -48,11 +48,11 @@ public class CitaGestion {
             sentencia.setObject(6, cita.getHora());
             
             int fila = sentencia.executeUpdate();
-            return fila > 0; //retorna true si hay un número de fila >0...
+            return fila > 0; 
         } catch (SQLException ex) {
             Logger.getLogger(CitaGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;  //devuelve falso... llegado a este punto...
+        return false; 
     }
 
     private static final String SQL_DELETE_CITA = "delete from CITA where id=?";
@@ -64,16 +64,16 @@ public class CitaGestion {
                     = Conexion.getConexion().prepareStatement(SQL_DELETE_CITA);
             sentencia.setString(1, cita.getIdCita());
             int fila = sentencia.executeUpdate();
-            return fila > 0; //retorna true si hay un número de fila >0...
+            return fila > 0; 
         } catch (SQLException ex) {
             Logger.getLogger(CitaGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;  //devuelve falso... llegado a este punto...
+        return false; 
     }
 
-    private static final String SQL_SELECT_CITA = "select * from CITA where IdCita=?";
+    private static final String SQL_SELECT_CITA = "select * from CITA where IDCITA=?";
 
-    //Retorna un Objecto Estudiante si lo encuentra... y null si no lo encuentra..
+    
     public static Cita getCita(String id) {
         Cita cita = null;
         try {
@@ -108,7 +108,7 @@ public class CitaGestion {
                 lista.add(
                         new Cita(
                                 
-             sentencia.setString(1, Cita.getIdCita());
+            sentencia.setString(1, Cita.getIdCita());
             sentencia.setString(2, Cita.getNombreMascota());
             sentencia.setString(3, Cita.getRazaMascota());
             sentencia.setString(4, Cita.getServicio());
