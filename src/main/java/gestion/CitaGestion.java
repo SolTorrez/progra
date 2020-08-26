@@ -106,14 +106,14 @@ public class CitaGestion {
             ResultSet datos = sentencia.executeQuery();
             while (datos.next()) {
                 lista.add(
-                        new Cita();
-                               sentencia.setString(1, Cita.getIdCita());
+                        new Cita(
+            sentencia.setString(1, Cita.getIdCita());
             sentencia.setString(2, Cita.getNombreMascota());
             sentencia.setString(3, Cita.getRazaMascota());
             sentencia.setString(4, Cita.getServicio());
             sentencia.setObject(5, Cita.getFecha());
             sentencia.setObject(6, Cita.getHora());                                
-                        
+            )          
                 );
             }
         } catch (SQLException ex) {
