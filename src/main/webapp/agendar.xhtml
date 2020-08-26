@@ -17,7 +17,17 @@
                             <b:panel title="Agendar Mi Cita" look="info" >
                                 <b:row>
                                     <b:column medium-screen="5">
-                                        <b:selectOneMenu value="#"
+                                        <b:inputText placeholder="Nombre mascota"
+                                                 required="true"
+                                                 id="nombreMascota"
+                                                 label="Escriba el nombre de su mascota"
+                                                 value="#{citaController.nombreMascota}"/>
+                                    </b:column>
+                                </b:row>
+                                
+                                <b:row>
+                                    <b:column medium-screen="5">
+                                        <b:selectOneMenu value="#{citaController.razaMascota}"
                                                          required="true" 
                                                          label="Seleccione la raza de su mascota:">
                                             <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
@@ -31,7 +41,7 @@
 
                                 <b:row>
                                     <b:column medium-screen="5">
-                                        <b:selectOneMenu value="#"
+                                        <b:selectOneMenu value="#{citaController.servicio}"
                                                          required="true" 
                                                          label="Seleccione el tipo de servicio:">
                                             <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
@@ -46,14 +56,14 @@
                                 <b:row>
                                     <b:column medium-screen="5">
                                         <b:datepicker id="fechaCita" mode="toggle-icon" showWeek="false"
-                                                      firstDay="1" value="(Seleccione fecha)" required="true"
+                                                      firstDay="1" value="#{citaController.fecha}" required="true"
                                                       label="Fecha:"/>
                                     </b:column>
                                 </b:row>
 
                                 <b:row>
                                     <b:column medium-screen="5">
-                                        <b:selectOneMenu value="#"
+                                        <b:selectOneMenu value="#{citaController.hora}"
                                                          required="true" 
                                                          label="Seleccione la hora:">
                                             <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
@@ -73,7 +83,7 @@
                                     <b:column medium-screen="3"/>
                                     <b:column medium-screen="6">
                                         <b:commandButton value="Agendar" 
-                                                         action="#"
+                                                         action="#{citaController.inserta()}"
                                                          look="primary"
                                                          style="width: 100"/>
                                     </b:column>

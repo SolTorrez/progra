@@ -3,129 +3,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-<ui:composition template="./../resources/plantillas/plantilla.xhtml">
+
+        <ui:composition template="./resources/plantilla/plantilla.xhtml">
+
             <ui:define name="content">
-                <h:form id="editaCitasForm">
-                    <b:container fluid="true">
-                        <b:panel title="Citas" look="primary">
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Id de la cita"
-                                                   for="IdCita"/>                                    
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="Id Cita"
-                                                 required="true"
-                                                 id="IdCitas"
-                                                 value="#{CitaController.idCita}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="id cita"/>                                    
-                                </b:column>
-                            </b:row>
-
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Nombre Mascota"
-                                                   for="nombre mascota"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="Nombre mascota"
-                                                 required="true"
-                                                 id="nombreMascota"
-                                                 value="#{CitaController.nombreMascota}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="nombre Mascota"/>
-                                </b:column>
-                            </b:row>
-
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Raza"
-                                                   for="Raza"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="Raza"
-                                                 required="true"
-                                                 id="raza"
-                                                 value="#{CitaController.razaMascota}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="raza"/>
-                                </b:column>
-                            </b:row>
-
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Servicio"
-                                                   for="servicio"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="Servicio"
-                                                 required="true"
-                                                 id="servicio"
-                                                 value="#{CitaController.servicio}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="servicio"/>
-                                </b:column>
-                            </b:row>
-
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Fecha"
-                                                   for="fecha"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:datepicker id="fecha"
-                                                  required="true"
-                                                  value="#{CitaController.fecha}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="fecha"/>
-                                </b:column>
-                            </b:row>
-
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Hora"
-                                                   for="hora"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:datepicker id="hora"
-                                                  required="true"
-                                                  value="#{CitaController.hora}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="hora"/>
-                                </b:column>
-                            </b:row>
-                                      
-                            <b:row>
-                                <b:column medium-screen="2"/>
-                                <b:column medium-screen="6">
-                                    <b:commandButton value="Ingresar"
-                                                     action="#{eCitaController.inserta()}"
-                                                     look="primary"
-                                                     style="width:33%" />
-                                    <b:commandButton value="Eliminar"
-                                                     action="#{estudianteController.elimina()}"
-                                                     look="danger"
-                                                     style="width:33%" />
-                                    <b:commandButton value="Modificar"
-                                                     action="#{estudianteController.modifica()}"
-                                                     look="success"
-                                                     style="width:33%" />
-                                </b:column>
-                            </b:row>
-                        </b:panel>
-                    </b:container>                    
+                <h:form>
+                    <b:dataTable 
+                        value="#{citaController.citas}"
+                        var="cita"
+                        excel="true"
+                        csv="true"
+                        pdf="false"
+                        copy="false"
+                        print="false"
+                        columnVisibility="true">
+                        <b:dataTableColumn value="#{cita.nombreMascota}"
+                                           width="16.6%"
+                                           label="Nombre"/>
+                        <b:dataTableColumn value="#{cita.razaMascota}"
+                                           width="16.6%"
+                                           label="Raza"/>
+                        <b:dataTableColumn value="#{cita.servicio}"
+                                           width="16.6%"
+                                           label="Servicio"/>
+                        <b:dataTableColumn value="#{cita.fecha}"
+                                           width="16.6%"
+                                           label="Fecha"/>
+                        <b:dataTableColumn value="#{cita.hora}"
+                                           width="16.6%"
+                                           label="Hora"/>
+                        <b:dataTableColumn width="16.6%"
+                                           label="Accion">
+                            <b:commandButton value="Editar"
+                                             action="#{citaController.edita(cita.idCita)}"/>
+                        </b:dataTableColumn> 
+                    </b:dataTable>
                 </h:form>
             </ui:define>
+
         </ui:composition>
+
     </body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
         <ui:composition template="./resources/plantilla/plantilla.xhtml">
@@ -12,16 +13,57 @@
                 <p>Gran parte del trabajo social que se realiza en LovePets está enfocado en ayudar animales de la calle, en abandono o maltrato. 
                     Es por esto que siempre tenemos gatitos y perritos en adopción. Estos animales son rescatados y revisados por nuestros doctores, los que se encuentran enfermos son tratados hasta que estén en condición de ser adoptados por una familia.
                     Todos las mascotas que se dan en adopción se entregan castrados o con contrato de castración para una futura cirugía.</p>
-                 <b:image library="images" name="qqq.jpeg" width="370px"/> 
-                  <b:image library="images" name="ssss.jpeg" width="370px"/> 
-                    <b:image library="images" name="ddd.jpeg" width="370px"/> 
-                <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.54.24 PM.jpeg" width="370px"/> 
-                
-                
-                
-                
-                
-                
+                <h:form>
+                    <b:row>
+                        <b:column medium-screen="3">
+                            <b:image library="images" name="ssss.jpeg" width="370px"/>
+                            <b:row>
+                                <b:commandButton colMd="12"
+                                                 value="Adoptar" 
+                                                 action="formularioAdopcion.xhtml"
+                                                 look="primary"
+                                                 style="width: 370px"/>
+                            </b:row>
+                        </b:column>
+                        <b:column medium-screen="3">
+                            <b:image library="images" name="qqq.jpeg" width="370px"/> 
+                            <b:row>
+                                <b:commandButton colMd="12"
+                                                 value="Adoptar" 
+                                                 action="formularioAdopcion.xhtml"
+                                                 look="primary"
+                                                 style="width: 370px"/>
+                            </b:row>
+                        </b:column>
+                        <b:column medium-screen="3">
+                            <b:image library="images" name="ddd.jpeg" width="370px"/> 
+                            <b:row>
+                                <b:commandButton colMd="12"
+                                                 value="Adoptar" 
+                                                 action="formularioAdopcion.xhtml"
+                                                 look="primary"
+                                                 style="width: 370px"/>
+                            </b:row>
+                        </b:column>
+
+                        <b:column medium-screen="3">
+                            <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.54.24 PM.jpeg" width="370px"/> 
+                            <b:row>
+                                <b:commandButton colMd="12"
+                                                 value="Adoptar" 
+                                                 action="formularioAdopcion.xhtml"
+                                                 look="primary"
+                                                 style="width: 370px"/>
+                            </b:row>
+                        </b:column>
+
+                    </b:row>
+
+                </h:form>
+
+
+
+
                 <h3>Responsabilidad</h3>
                 <p>Recuerda que una mascota es una responsabilidad y  un nuevo miembro de la familia que debe ser tratado con respeto y amor y que en caso de enfermarse debe ser revisada por un médico veterinario para que viva sano muchos años más.</p>
             </ui:define>

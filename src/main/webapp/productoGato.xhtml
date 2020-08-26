@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
@@ -11,21 +12,45 @@
             <ui:define name="content">
                 <h1 style="color: #036fab" align="center">Productos Para Gatos</h1>
                 <p font-size="40px" align="center">Nuestra seleccion de productos para gatos</p>
-                 <table class="egt">
-                <tr/>
-    <td> <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.05.23 PM (1).jpeg"/></td>
-    <td><input type="button">Comprar</input></td>
-    
 
+                <h:form>
+                    <b:row>
+                        <b:column medium-screen="4">
+                            <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.05.23 PM (1).jpeg"/>
+                            <b:row>
+                                <b:commandButton colMd="12"
+                                                 value="Comprar" 
+                                                 action="formularioAdopcion.xhtml"
+                                                 look="primary"
+                                                 style="width: 458px"/>
+                            </b:row>
+                        </b:column>
 
-    <td><b:image  library="images" name="WhatsApp Image 2020-08-13 at 5.05.23 PM.jpeg"/></td>
-    <td><input type="button">Comprar</input></td>
+                        <b:column medium-screen="4">
+                            <b:image  library="images" name="WhatsApp Image 2020-08-13 at 5.05.23 PM.jpeg"/>
+                            <b:row>
+                                <b:commandButton colMd="12"
+                                                 value="Comprar" 
+                                                 action="formularioAdopcion.xhtml"
+                                                 look="primary"
+                                                 style="width: 458px"/>
+                            </b:row>
+                        </b:column>
 
+                        <b:column medium-screen="4">
+                            <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.05.24 PM.jpeg"/>
+                            <b:row>
+                                <b:commandButton colMd="12"
+                                                 value="Comprar" 
+                                                 action="formularioAdopcion.xhtml"
+                                                 look="primary"
+                                                 style="width: 458px"/>
+                            </b:row>
+                        </b:column>
 
-    <td> <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.05.24 PM.jpeg"/></td>
-    <td><input type="button">Comprar</input>a</td>
-    
-</table>
+                    </b:row>
+                </h:form>
+
             </ui:define>
 
         </ui:composition>

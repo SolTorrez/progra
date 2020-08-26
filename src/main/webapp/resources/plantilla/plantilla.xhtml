@@ -14,7 +14,7 @@
 
     <h:body>
         <b:navBar fluid="true" brand="LovePets"
-                  brandHref="/VetLovePets/faces/index.xhtml">
+                  brandHref="/VetLovePets/faces/principal.xhtml">
             <b:navbarLinks pull="left">
                 <b:image name="images/Logo-veterinaria.jpg" height="55px" />
             </b:navbarLinks>
@@ -34,8 +34,11 @@
                 <b:navLink value="Contacto" href="/VetLovePets/faces/contacto.xhtml"/>
             </b:navbarLinks>
             <b:navbarLinks pull="right" style-class="hidden-xs">
-                <b:navLink value="Login" icon-awesome="fa-user" href="/VetLovePets/faces/login.xhtml"/>
-                <b:navLink value="Registrarme" href="#"/>
+                <b:dropMenu value="Configuracion" icon-awesome="fa-user">
+                    <b:navLink value="Log Out" icon-awesome="fa-user" href="/VetLovePets/faces/index.xhtml"/>
+                    <b:navLink value="Editar" href="#"/>
+                    <b:navLink value="Codigo QR"  href="#"/>
+                </b:dropMenu>
             </b:navbarLinks>
         </b:navBar>
         <div>

@@ -1,14 +1,18 @@
 
 package model;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
+
 
 public class Cita {
     private String idCita;
     private String nombreMascota;
     private String razaMascota;
     private String servicio;
-    private String fecha;
-    private String hora;
+    private Date fecha;
+    private Time hora;
 
     public String getIdCita() {
         return idCita;
@@ -42,23 +46,23 @@ public class Cita {
         this.servicio = servicio;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public String getHora() {
+    public Time getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Time hora) {
         this.hora = hora;
     }
 
-    public Cita(String idCita, String nombreMascota, String razaMascota, String servicio, String fecha, String hora) {
+    public Cita(String idCita, String nombreMascota, String razaMascota, String servicio, Date fecha, Time hora) {
         this.idCita = idCita;
         this.nombreMascota = nombreMascota;
         this.razaMascota = razaMascota;

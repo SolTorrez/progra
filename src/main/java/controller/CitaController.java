@@ -1,33 +1,42 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
 import gestion.CitaGestion;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import model.Cita;
 
-
+/**
+ *
+ * @author Congo
+ */
 @Named(value = "citaController")
-@Dependent
+@SessionScoped
 public class CitaController extends Cita implements Serializable {
 
-  
+    /**
+     * Creates a new instance of CitaController
+     */
     public CitaController() {
     }
     
     public ArrayList<Cita> getCitas(){
-        ArrayList listaCita = CitaGestion.getCita();
+        ArrayList listaCita = CitaGestion.getCitas();
         return listaCita;
     }
     public String inserta() {        
       
         if (CitaGestion.insertar(this)) {
-            return "list.xhtml";
+            return "index.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Posible indentificación duplicada...");
@@ -39,7 +48,7 @@ public class CitaController extends Cita implements Serializable {
     public String modifica() {        
         
         if (CitaGestion.modificar(this)) {
-            return "list.xhtml";
+            return "index.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Posible indentificación duplicada...");
@@ -51,7 +60,7 @@ public class CitaController extends Cita implements Serializable {
     public String elimina() {        
         
         if (CitaGestion.eliminar(this)) {
-            return "list.xhtml";
+            return "index.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","No puede eliminar un estudiante si tiene notas...");
@@ -72,12 +81,12 @@ public class CitaController extends Cita implements Serializable {
            
             return "listaCitas.xhtml";
         } else {
-            return "list.xhtml";
+            return "edita.xhtml";
         }
     }   
     
     public static List<Cita> getCita() {
-        return CitaGestion.getCita();
+        return CitaGestion.getCitas();
     }
     
     private boolean noImprimir=true; 
@@ -87,7 +96,7 @@ public class CitaController extends Cita implements Serializable {
     public void setNoImprimir(boolean noImprimir) {
         this.noImprimir = noImprimir;
     }
-    public void buscaEstudiante(String id) {
+    public void buscaCita(String id) {
         Cita cita = CitaGestion.getCita(id);
         if (cita!=null) {
              this.setIdCita(cita.getIdCita());
@@ -109,4 +118,5 @@ public class CitaController extends Cita implements Serializable {
             noImprimir=true;
         }
     }
+    
 }
