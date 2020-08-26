@@ -10,20 +10,20 @@ import model.Cita;
 import model.Conexion;
 
 public class CitaGestion {
- private static final String SQL_INSERT_ESTUDIANTE = "insert into estudiante values (?,?,?,?,?,?,?)";
+ private static final String SQL_INSERT_CITA = "insert into CITA values (?,?,?,?,?,?)";
 
    
     public static boolean insertar(Cita cita) {
         try {
             PreparedStatement sentencia
                     = Conexion.getConexion().prepareStatement(SQL_INSERT_ESTUDIANTE);
-            sentencia.setString(1, cita.getId());
-            sentencia.setString(2, cita.getNombre());
-            sentencia.setString(3, cita.getApellido1());
-            sentencia.setString(4, cita.getApellido2());
-            sentencia.setObject(5, cita.getFechaNaci());
-            sentencia.setObject(6, cita.getFechaIngr());
-            sentencia.setString(7, "" + cita.getGenero());
+            sentencia.setString(1, cita.getIdCita());
+            sentencia.setString(2, cita.getNombreMascota());
+            sentencia.setString(3, cita.getRazaMascota());
+            sentencia.setString(4, cita.getServicio());
+            sentencia.setObject(5, cita.getFecha());
+            sentencia.setObject(6, cita.getHora());
+            
             int fila = sentencia.executeUpdate();
             return fila > 0; //retorna true si hay un número de fila >0...
         } catch (SQLException ex) {
