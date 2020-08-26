@@ -76,7 +76,7 @@ public class CitaController extends Cita implements Serializable {
         }
     }   
     
-    public List<Cita> getCita() {
+    public static List<Cita> getCita() {
         return CitaGestion.getCita();
     }
     
