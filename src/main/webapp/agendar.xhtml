@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./resources/plantilla/plantilla.xhtml">
+            <ui:define name="content">
+                <b:column medium-screen="3"/>
+                <b:column medium-screen="6">
+                    <b:form id="agendarForm">
+                        <b:container fluid="true"> 
+                            <b:panel title="Agendar Mi Cita" look="info" >
+                                <b:row>
+                                    <b:column medium-screen="5">
+                                        <b:selectOneMenu value="#"
+                                                         required="true" 
+                                                         label="Seleccione la raza de su mascota:">
+                                            <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
+                                            <f:selectItem itemLabel="Perro" itemValue="1" />
+                                            <f:selectItem itemLabel="Gato" itemValue="2" />
+                                            <f:selectItem itemLabel="Ruedor" itemValue="3" />
+                                            <f:selectItem itemLabel="Otro" itemValue="4" />
+                                        </b:selectOneMenu>
+                                    </b:column>
+                                </b:row>
+
+                                <b:row>
+                                    <b:column medium-screen="5">
+                                        <b:selectOneMenu value="#"
+                                                         required="true" 
+                                                         label="Seleccione el tipo de servicio:">
+                                            <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
+                                            <f:selectItem itemLabel="Cita Medica" itemValue="1" />
+                                            <f:selectItem itemLabel="Grooming" itemValue="2" />
+                                            <f:selectItem itemLabel="Etologia(Comportamiento)" itemValue="3" />
+                                            <f:selectItem itemLabel="Consulta" itemValue="4" />
+                                        </b:selectOneMenu>
+                                    </b:column>
+                                </b:row>
+
+                                <b:row>
+                                    <b:column medium-screen="5">
+                                        <b:datepicker id="fechaCita" mode="toggle-icon" showWeek="false"
+                                                      firstDay="1" value="(Seleccione fecha)" required="true"
+                                                      label="Fecha:"/>
+                                    </b:column>
+                                </b:row>
+
+                                <b:row>
+                                    <b:column medium-screen="5">
+                                        <b:selectOneMenu value="#"
+                                                         required="true" 
+                                                         label="Seleccione la hora:">
+                                            <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
+                                            <f:selectItem itemLabel="8:00 AM" itemValue="1" />
+                                            <f:selectItem itemLabel="9:00 AM" itemValue="2" />
+                                            <f:selectItem itemLabel="10:00 AM" itemValue="3" />
+                                            <f:selectItem itemLabel="11:00 AM" itemValue="4" />
+                                            <f:selectItem itemLabel="1:00 PM" itemValue="5" />
+                                            <f:selectItem itemLabel="2:00 PM" itemValue="6" />
+                                            <f:selectItem itemLabel="3:00 PM" itemValue="7" />
+                                            <f:selectItem itemLabel="4:00 PM" itemValue="8" />
+                                        </b:selectOneMenu>
+                                    </b:column>
+                                </b:row>
+
+                                <b:row>
+                                    <b:column medium-screen="3"/>
+                                    <b:column medium-screen="6">
+                                        <b:commandButton value="Agendar" 
+                                                         action="#"
+                                                         look="primary"
+                                                         style="width: 100"/>
+                                    </b:column>
+                                </b:row>
+
+                            </b:panel>
+                        </b:container>
+                    </b:form>
+                </b:column>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

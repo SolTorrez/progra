@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./resources/plantilla/plantilla.xhtml">
+
+            <ui:define name="content">
+                <b:column medium-screen="3"/>
+                <b:column medium-screen="6">
+                    <b:form id="contactoForm" >
+                        <b:container fluid="true"> 
+                            <b:panel title="Contactenos" look="info">
+                                <b:column medium-screen="5">
+                                    <b:inputText placeholder="Nombre" 
+                                                 id="nombre" 
+                                                 label="Nombre" 
+                                                 required="true"
+                                                 value="" 
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+
+                                <b:column medium-screen="5">
+                                    <b:inputText placeholder="Apellidos" 
+                                                 id="apellido" 
+                                                 label="Apellido" 
+                                                 required="true"
+                                                 value="" 
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+
+                                <b:column medium-screen="5">
+                                    <b:inputText placeholder="Telefono" 
+                                                 id="telefono" 
+                                                 label="Telefono" 
+                                                 required="true"
+                                                 value="" 
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+
+                                <b:column medium-screen="5">
+                                    <b:inputText placeholder="Correo" 
+                                                 id="correo" 
+                                                 label="Correo" 
+                                                 required="true"
+                                                 value="" 
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+
+
+
+                                <b:column medium-screen="10">
+                                    <b:inputText placeholder="Mensaje" 
+                                                 id="mensaje" 
+                                                 label="Mensaje" 
+                                                 required="true"
+                                                 value="" 
+                                                 autocomplete="false"
+                                                 fieldSize="lg">
+                                    </b:inputText>
+                                </b:column>
+
+                                <b:column medium-screen="10">
+                                    <b:commandButton value="Enviar" 
+                                                     action="#"
+                                                     look="primary"
+                                                     style="width: 100"/>
+                                </b:column>
+                            </b:panel>
+                        </b:container>  
+                    </b:form>
+                </b:column>             
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
