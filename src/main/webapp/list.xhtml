@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <body>
+        <ui:composition template="./../resources/plantillas/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <b:dataTable 
+                        value="#{CitaController.cita}"
+                        var="cita"
+                        excel="true"
+                        csv="true"
+                        pdf="true"
+                        copy="true"
+                        print="true"
+                        columnVisibility="true">
+                        <b:dataTableColumn value="#{cita.idCita}" width="10%" label="Id"/>
+                        <b:dataTableColumn value="#{cita.nombreMascota}" width="20%" label="Nombre"/>
+                        <b:dataTableColumn value="#{cita.razaMascota}" width="20%" label="Raza"/>
+                        <b:dataTableColumn value="#{cita.Servicio}" width="20%" label="Servicio"/>
+                        <b:dataTableColumn value="#{cita.fecha}" 
+                                           style="text-align: center"
+                                           width="10%" label="Servicio"/>
+                        <b:dataTableColumn value="#{cita.hora}" 
+                                           style="text-align: center"
+                                           width="10%" label="hora"/>
+                            <b:commandButton value="Editar"
+                                             action="#{CitaController.edita(cita.idCita)}" />
+                        </b:dataTableColumn>                        
+                    </b:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
