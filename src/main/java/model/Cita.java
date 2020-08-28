@@ -1,9 +1,7 @@
 
 package model;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.time.LocalDate;
+import java.util.Date;
 
 
 public class Cita {
@@ -12,7 +10,7 @@ public class Cita {
     private String razaMascota;
     private String servicio;
     private Date fecha;
-    private Time hora;
+    private String hora;
 
     public String getIdCita() {
         return idCita;
@@ -54,15 +52,15 @@ public class Cita {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
-    public Cita(String idCita, String nombreMascota, String razaMascota, String servicio, Date fecha, Time hora) {
+    public Cita(String idCita, String nombreMascota, String razaMascota, String servicio, Date fecha, String hora) {
         this.idCita = idCita;
         this.nombreMascota = nombreMascota;
         this.razaMascota = razaMascota;

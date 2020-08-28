@@ -17,11 +17,20 @@
                         <b:container fluid="true"> 
                             <b:panel title="Contactenos" look="info">
                                 <b:column medium-screen="5">
+                                    <b:inputText placeholder="Cedula" 
+                                                 id="cedula" 
+                                                 label="Cedula" 
+                                                 required="true"
+                                                 value="#{contactoController.id}" 
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+                                <b:column medium-screen="5">
                                     <b:inputText placeholder="Nombre" 
                                                  id="nombre" 
                                                  label="Nombre" 
                                                  required="true"
-                                                 value="" 
+                                                 value="#{contactoController.nombre}" 
                                                  autocomplete="false">
                                     </b:inputText>
                                 </b:column>
@@ -31,7 +40,7 @@
                                                  id="apellido" 
                                                  label="Apellido" 
                                                  required="true"
-                                                 value="" 
+                                                 value="#{contactoController.apellido}" 
                                                  autocomplete="false">
                                     </b:inputText>
                                 </b:column>
@@ -41,7 +50,7 @@
                                                  id="telefono" 
                                                  label="Telefono" 
                                                  required="true"
-                                                 value="" 
+                                                 value="#{contactoController.telefono}" 
                                                  autocomplete="false">
                                     </b:inputText>
                                 </b:column>
@@ -51,7 +60,7 @@
                                                  id="correo" 
                                                  label="Correo" 
                                                  required="true"
-                                                 value="" 
+                                                 value="#{contactoController.correo}" 
                                                  autocomplete="false">
                                     </b:inputText>
                                 </b:column>
@@ -63,7 +72,7 @@
                                                  id="mensaje" 
                                                  label="Mensaje" 
                                                  required="true"
-                                                 value="" 
+                                                 value="#{contactoController.mensaje}" 
                                                  autocomplete="false"
                                                  fieldSize="lg">
                                     </b:inputText>
@@ -71,14 +80,22 @@
 
                                 <b:column medium-screen="10">
                                     <b:commandButton value="Enviar" 
-                                                     action="#"
+                                                     action="#{contactoController.inserta()}"
+                                                     onclick="ajax:alertaController.setRender(true)"
+                                                     onmouseout="ajax:alertaController.setRender(false)"
+                                                     update="@form" 
                                                      look="primary"
                                                      style="width: 100"/>
                                 </b:column>
                             </b:panel>
+                            <b:row>
+                                <b:column>
+                                    <b:alert closable="true" rendered="#{alertaController.render}" severity="success"><strong>Mensaje Enviado!</strong> Gracias por sus sugerencias</b:alert>
+                                </b:column>
+                            </b:row>
                         </b:container>  
                     </b:form>
-                </b:column>             
+                </b:column>
             </ui:define>
 
         </ui:composition>

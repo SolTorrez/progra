@@ -6,36 +6,38 @@
 package controller;
 
 import gestion.AdopcionGestion;
+import gestion.ContactoGestion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import model.Adopcion;
+import model.Contacto;
 
 /**
  *
  * @author Congo
  */
-@Named(value = "adopcionController")
+@Named(value = "contactoController")
 @SessionScoped
-public class AdopcionController extends Adopcion implements Serializable {
+public class ContactoController extends Contacto implements Serializable {
 
     /**
      * Creates a new instance of AdopcionController
      */
-    public AdopcionController() {
+    public ContactoController() {
     }
     
     public String inserta() {        
       
-        if (AdopcionGestion.insertar(this)) {
-            return "confirmacion.xhtml";
+        if (ContactoGestion.insertar(this)) {
+            return "contacto.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","Posible identificación duplicada...");
-            FacesContext.getCurrentInstance().addMessage("adopcionFormn", mensaje);
-            return "formularioAdopcion.xhtml";
+            FacesContext.getCurrentInstance().addMessage("contactoFormn", mensaje);
+            return "contacto.xhtml";
         }
     }
     

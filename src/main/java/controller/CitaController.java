@@ -36,36 +36,36 @@ public class CitaController extends Cita implements Serializable {
     public String inserta() {        
       
         if (CitaGestion.insertar(this)) {
-            return "index.xhtml";
+            return "principal.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "Error","Posible indentificación duplicada...");
-            FacesContext.getCurrentInstance().addMessage("editaCitaForm:identificacion", mensaje);
-            return "listaCitas.xhtml";
+            "Error","Faltan datos");
+            FacesContext.getCurrentInstance().addMessage("agendarForm", mensaje);
+            return "agendar.xhtml";
         }
     }
     
     public String modifica() {        
         
         if (CitaGestion.modificar(this)) {
-            return "index.xhtml";
+            return "listaCitas.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "Error","Posible indentificación duplicada...");
-            FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", mensaje);
-            return "listaCitas.xhtml";
+            "Error","Faltan Datos");
+            FacesContext.getCurrentInstance().addMessage("editaCitasForm", mensaje);
+            return "editaCita.xhtml";
         }
     }
     
     public String elimina() {        
         
         if (CitaGestion.eliminar(this)) {
-            return "index.xhtml";
+            return "listaCitas.xhtml";
         } else {  
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
             "Error","No puede eliminar un estudiante si tiene notas...");
             FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", mensaje);
-            return "listaCitas.xhtml";
+            return "editaCita.xhtml";
         }
     }
     
@@ -81,7 +81,7 @@ public class CitaController extends Cita implements Serializable {
            
             return "listaCitas.xhtml";
         } else {
-            return "edita.xhtml";
+            return "editaCita.xhtml";
         }
     }   
     
@@ -89,34 +89,5 @@ public class CitaController extends Cita implements Serializable {
         return CitaGestion.getCitas();
     }
     
-    private boolean noImprimir=true; 
-    public boolean isNoImprimir() {
-        return noImprimir;
-    }
-    public void setNoImprimir(boolean noImprimir) {
-        this.noImprimir = noImprimir;
-    }
-    public void buscaCita(String id) {
-        Cita cita = CitaGestion.getCita(id);
-        if (cita!=null) {
-             this.setIdCita(cita.getIdCita());
-            this.setNombreMascota(cita.getNombreMascota());
-            this.setRazaMascota(cita.getRazaMascota());
-            this.setServicio(cita.getServicio());
-            this.setFecha(cita.getFecha());
-            this.setHora(cita.getHora());
-            
-            noImprimir=false; 
-        } else {  
-            this.setNombreMascota("");
-            this.setRazaMascota("");
-            this.setServicio("");
-            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_WARN,
-            "Error","Cita no existente...");
-           
-                    
-            noImprimir=true;
-        }
-    }
     
 }

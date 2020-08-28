@@ -10,89 +10,108 @@
 
         <ui:composition template="./resources/plantilla/plantilla.xhtml">
             <ui:define name="content">
-                <b:column medium-screen="3"/>
-                <b:column medium-screen="6">
                     <b:form id="agendarForm">
                         <b:container fluid="true"> 
                             <b:panel title="Agendar Mi Cita" look="info" >
                                 <b:row>
+                                    <b:column medium-screen="2">
+                                    <h:outputLabel value="Nombre de la mascota:"
+                                                   for="nombreMascota"/>                                    
+                                </b:column>
                                     <b:column medium-screen="5">
                                         <b:inputText placeholder="Nombre mascota"
-                                                 required="true"
-                                                 id="nombreMascota"
-                                                 label="Escriba el nombre de su mascota"
-                                                 value="#{citaController.nombreMascota}"/>
+                                                     required="true"
+                                                     id="nombreMascota"
+                                                     value="#{citaController.nombreMascota}"/>
                                     </b:column>
                                 </b:row>
-                                
+
                                 <b:row>
+                                    <b:column medium-screen="2">
+                                    <h:outputLabel value="Raza:"
+                                                   for="razaMascota"/>                                    
+                                </b:column>
                                     <b:column medium-screen="5">
                                         <b:selectOneMenu value="#{citaController.razaMascota}"
-                                                         required="true" 
-                                                         label="Seleccione la raza de su mascota:">
+                                                         required="true">
                                             <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
-                                            <f:selectItem itemLabel="Perro" itemValue="1" />
-                                            <f:selectItem itemLabel="Gato" itemValue="2" />
-                                            <f:selectItem itemLabel="Ruedor" itemValue="3" />
-                                            <f:selectItem itemLabel="Otro" itemValue="4" />
+                                            <f:selectItem itemLabel="Perro" itemValue="Perro" />
+                                            <f:selectItem itemLabel="Gato" itemValue="Gato" />
+                                            <f:selectItem itemLabel="Ruedor" itemValue="Ruedor" />
+                                            <f:selectItem itemLabel="Otro" itemValue="Otro" />
                                         </b:selectOneMenu>
                                     </b:column>
                                 </b:row>
 
                                 <b:row>
+                                    <b:column medium-screen="2">
+                                    <h:outputLabel value="Seleccione el servicio:"
+                                                   for="servicio"/>                                    
+                                </b:column>
                                     <b:column medium-screen="5">
                                         <b:selectOneMenu value="#{citaController.servicio}"
-                                                         required="true" 
-                                                         label="Seleccione el tipo de servicio:">
+                                                         required="true">
                                             <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
-                                            <f:selectItem itemLabel="Cita Medica" itemValue="1" />
-                                            <f:selectItem itemLabel="Grooming" itemValue="2" />
-                                            <f:selectItem itemLabel="Etologia(Comportamiento)" itemValue="3" />
-                                            <f:selectItem itemLabel="Consulta" itemValue="4" />
+                                            <f:selectItem itemLabel="Cita Medica" itemValue="Cita Medica" />
+                                            <f:selectItem itemLabel="Grooming" itemValue="Grooming" />
+                                            <f:selectItem itemLabel="Etologia(Comportamiento)" itemValue="Etologia" />
+                                            <f:selectItem itemLabel="Consulta General" itemValue="Consulta General" />
                                         </b:selectOneMenu>
                                     </b:column>
                                 </b:row>
 
                                 <b:row>
+                                    <b:column medium-screen="2">
+                                    <h:outputLabel value="Seleccione la fecha: "
+                                                   for="fecha"/>                                    
+                                </b:column>
                                     <b:column medium-screen="5">
-                                        <b:datepicker id="fechaCita" mode="toggle-icon" showWeek="false"
-                                                      firstDay="1" value="#{citaController.fecha}" required="true"
-                                                      label="Fecha:"/>
+                                        <b:datepicker id="fecha"
+                                                      value="#{citaController.fecha}" 
+                                                      required="true">
+                                        </b:datepicker>                                        
+                                    </b:column>
+                                    <b:column medium-screen="5" style-class="message">
+                                        <b:message   
+                                            for="fecha"/>
                                     </b:column>
                                 </b:row>
 
                                 <b:row>
+                                    <b:column medium-screen="2">
+                                    <h:outputLabel value="Seleccione la hora:"
+                                                   for="hora"/>                                    
+                                </b:column>
                                     <b:column medium-screen="5">
                                         <b:selectOneMenu value="#{citaController.hora}"
-                                                         required="true" 
-                                                         label="Seleccione la hora:">
+                                                         required="true"
+                                                         id="hora">
                                             <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
-                                            <f:selectItem itemLabel="8:00 AM" itemValue="1" />
-                                            <f:selectItem itemLabel="9:00 AM" itemValue="2" />
-                                            <f:selectItem itemLabel="10:00 AM" itemValue="3" />
-                                            <f:selectItem itemLabel="11:00 AM" itemValue="4" />
-                                            <f:selectItem itemLabel="1:00 PM" itemValue="5" />
-                                            <f:selectItem itemLabel="2:00 PM" itemValue="6" />
-                                            <f:selectItem itemLabel="3:00 PM" itemValue="7" />
-                                            <f:selectItem itemLabel="4:00 PM" itemValue="8" />
+                                            <f:selectItem itemLabel="8:00 AM" itemValue="8:00" />
+                                            <f:selectItem itemLabel="9:00 AM" itemValue="9:00" />
+                                            <f:selectItem itemLabel="10:00 AM" itemValue="10:00" />
+                                            <f:selectItem itemLabel="11:00 AM" itemValue="11:00" />
+                                            <f:selectItem itemLabel="1:00 PM" itemValue="13:00" />
+                                            <f:selectItem itemLabel="2:00 PM" itemValue="14:00" />
+                                            <f:selectItem itemLabel="3:00 PM" itemValue="15:00" />
+                                            <f:selectItem itemLabel="4:00 PM" itemValue="16:00" />
                                         </b:selectOneMenu>
                                     </b:column>
                                 </b:row>
 
                                 <b:row>
-                                    <b:column medium-screen="3"/>
-                                    <b:column medium-screen="6">
+                                    <b:column medium-screen="2"/>
+                                    <b:column medium-screen="8">
                                         <b:commandButton value="Agendar" 
                                                          action="#{citaController.inserta()}"
                                                          look="primary"
-                                                         style="width: 100"/>
+                                                         style="width: 400px"/>
                                     </b:column>
                                 </b:row>
 
                             </b:panel>
                         </b:container>
                     </b:form>
-                </b:column>
             </ui:define>
 
         </ui:composition>

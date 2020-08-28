@@ -3,6 +3,7 @@ package model;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,6 +12,10 @@ public class Conexion {
         private static Conexion conexion;
     private static final String DBURL="jdbc:derby://localhost:1527/VeterinariaLovePets";
     private static Connection conn;
+
+    public static PreparedStatement getConexion(String SQL_SELECT_REVISACITA) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     private Conexion() {
         try {

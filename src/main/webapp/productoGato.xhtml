@@ -18,11 +18,14 @@
                         <b:column medium-screen="4">
                             <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.05.23 PM (1).jpeg"/>
                             <b:row>
-                                <b:commandButton colMd="12"
-                                                 value="Comprar" 
-                                                 action="<b:alert><strong>Cofirmacion!</strong> Su compra ha sido confirmada</b:alert>"
-                                                 look="primary"
-                                                 style="width: 458px"/>
+                                <b:commandButton
+                                    colMd="12"
+                                    look="primary"
+                                    onclick="ajax:alertaController.setRender(true)"
+                                    onmouseout="ajax:alertaController.setRender(false)"
+                                    update="@form"
+                                    value="Comprar"
+                                    style="width: 458px"/>
                             </b:row>
                         </b:column>
 
@@ -30,8 +33,10 @@
                             <b:image  library="images" name="WhatsApp Image 2020-08-13 at 5.05.23 PM.jpeg"/>
                             <b:row>
                                 <b:commandButton colMd="12"
-                                                 value="Comprar" 
-                                                 action="<b:alert><strong>Cofirmacion!</strong> Su compra ha sido confirmada</b:alert>"
+                                                 value="Comprar"
+                                                 onclick="ajax:alertaController.setRender(true)"
+                                                 onmouseout="ajax:alertaController.setRender(false)"
+                                                 update="@form"
                                                  look="primary"
                                                  style="width: 458px"/>
                             </b:row>
@@ -41,13 +46,20 @@
                             <b:image library="images" name="WhatsApp Image 2020-08-13 at 5.05.24 PM.jpeg"/>
                             <b:row>
                                 <b:commandButton colMd="12"
-                                                 value="Comprar" 
-                                                 action="<b:alert><strong>Cofirmacion!</strong> Su compra ha sido confirmada</b:alert>"
+                                                 value="Comprar"
+                                                 onclick="ajax:alertaController.setRender(true)" 
+                                                 onmouseout="ajax:alertaController.setRender(false)"
+                                                 update="@form" 
                                                  look="primary"
                                                  style="width: 458px"/>
                             </b:row>
                         </b:column>
 
+                    </b:row>
+                    <b:row>
+                        <b:column>
+                            <b:alert closable="true" rendered="#{alertaController.render}" severity="success"><strong>Confirmado!</strong> Su producto se agrego al carrito</b:alert>
+                        </b:column>
                     </b:row>
                 </h:form>
 

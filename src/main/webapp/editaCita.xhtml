@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./resources/plantilla/plantilla.xhtml">
+
+            <ui:define name="content">
+                
+                <h:form id="editaCitasForm">
+                    <b:container fluid="true">
+                        <b:panel title="Citas" look="info">
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="ID de Cita"
+                                                   for="IdCita"/>                                    
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="ID de Cita"
+                                                 tooltip="Se modificara o borrara la cita segun el ID de la cita"
+                                                 required="true"
+                                                 id="idCita"
+                                                 value="#{citaController.idCita}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="id cita"/>                                    
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Nombre de la Mascota"
+                                                   for="nombreMascota"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Nombre mascota"
+                                                 required="true"
+                                                 id="nombreMascota"
+                                                 value="#{citaController.nombreMascota}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre Mascota"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Seleccione la raza de su mascota:"
+                                                   for="razaMascota"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:selectOneMenu value="#{citaController.razaMascota}"
+                                                         required="true">
+                                            <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
+                                            <f:selectItem itemLabel="Perro" itemValue="Perro" />
+                                            <f:selectItem itemLabel="Gato" itemValue="Gato" />
+                                            <f:selectItem itemLabel="Ruedor" itemValue="Ruedor" />
+                                            <f:selectItem itemLabel="Otro" itemValue="Otro" />
+                                        </b:selectOneMenu>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="raza"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Seleccione el tipo de servicio: "
+                                                   for="servicio"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:selectOneMenu value="#{citaController.servicio}"
+                                                         required="true">
+                                            <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
+                                            <f:selectItem itemLabel="Cita Medica" itemValue="Cita Medica" />
+                                            <f:selectItem itemLabel="Grooming" itemValue="Grooming" />
+                                            <f:selectItem itemLabel="Etologia(Comportamiento)" itemValue="Etologia" />
+                                            <f:selectItem itemLabel="Consulta General" itemValue="Consulta General" />
+                                        </b:selectOneMenu>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="servicio"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Fecha"
+                                                   for="fecha"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fecha"
+                                                      value="#{citaController.fecha}" 
+                                                      required="true">
+                                        </b:datepicker>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fecha"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Seleccione la hora:"
+                                                   for="hora"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:selectOneMenu value="#{citaController.hora}"
+                                                         required="true">
+                                            <f:selectItem itemLabel="(Seleccione uno)" itemValue="" />
+                                            <f:selectItem itemLabel="8:00 AM" itemValue="8:00" />
+                                            <f:selectItem itemLabel="9:00 AM" itemValue="9:00" />
+                                            <f:selectItem itemLabel="10:00 AM" itemValue="10:00" />
+                                            <f:selectItem itemLabel="11:00 AM" itemValue="11:00" />
+                                            <f:selectItem itemLabel="1:00 PM" itemValue="13:00" />
+                                            <f:selectItem itemLabel="2:00 PM" itemValue="14:00" />
+                                            <f:selectItem itemLabel="3:00 PM" itemValue="15:00" />
+                                            <f:selectItem itemLabel="4:00 PM" itemValue="16:00" />
+                                        </b:selectOneMenu>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="hora"/>
+                                </b:column>
+                            </b:row>
+                                      
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="6">
+                                    <b:commandButton value="Eliminar"
+                                                     action="#{citaController.elimina()}"
+                                                     look="danger"
+                                                     style="width:50%" />
+                                    <b:commandButton value="Modificar"
+                                                     action="#{citaController.modifica()}"
+                                                     look="success"
+                                                     style="width:50%" />
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>                    
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

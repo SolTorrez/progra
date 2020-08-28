@@ -11,7 +11,7 @@
             <ui:define name="content">
                 <b:column medium-screen="3"/>
                 <b:column medium-screen="6">
-                    <b:form id="contactoForm" >
+                    <b:form id="adopcionForm" >
                         <b:container fluid="true"> 
                             <b:panel title="Adopta" look="info">
                                 <b:column medium-screen="5">
@@ -79,10 +79,18 @@
                                 <b:column medium-screen="10">
                                     <b:commandButton value="Enviar" 
                                                      action="#{adopcionController.inserta()}"
+                                                     onclick="ajax:alertaController.setRender(true)"
+                                                     onmouseout="ajax:alertaController.setRender(false)"
+                                                     update="@form" 
                                                      look="primary"
                                                      style="width: 100"/>
                                 </b:column>
                             </b:panel>
+                            <b:row>
+                                <b:column>
+                                    <b:alert closable="true" rendered="#{alertaController.render}" severity="success"><strong>Solicitud Enviada!</strong> Pronto lo contactaremos</b:alert>
+                                </b:column>
+                            </b:row>
                         </b:container>  
                     </b:form>
                 </b:column>

@@ -21,50 +21,40 @@ import model.Cliente;
 @SessionScoped
 public class ClienteController extends Cliente implements Serializable {
 
-    private boolean autenticado;
-    private boolean noAutenticado;
-
+    private String ced;
     /**
      * Creates a new instance of ClienteController
      */
     public ClienteController() {
-
-        noAutenticado = true;
-        autenticado = false;
-    }
-
-    public boolean isNoAutenticado() {
-        return noAutenticado;
-    }
-
-    public void setNoAutenticado(boolean noAutenticado) {
-        this.noAutenticado = noAutenticado;
-    }
-
-    public boolean isAutenticado() {
-        return autenticado;
-    }
-
-    public void setAutenticado(boolean autenticado) {
-        this.autenticado = autenticado;
+ced="";
     }
 
     public String valida() {
 
-        Cliente cliente = ClienteGestion.valida(this.getIdCliente(), this.getPwCliente());
+        Cliente cliente = ClienteGestion.valida(this.getUsuario(), this.getClave());
 
         if (cliente != null) {  //El usuario existe y clave OK!
-            this.setNombreCliente(cliente.getNombreCliente());
-            autenticado = true;
-            noAutenticado = false;
+            this.setNombre(cliente.getNombre());
+            ced= ced + cliente.getCedula();
             return "principal.xhtml";
         } else {  //No existe el usuario o la clave no es correcta...
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Usuario/Clave incorrecto");
-            FacesContext.getCurrentInstance().addMessage("loginForm, clave", msg);
-            autenticado = false;
-            noAutenticado = true;
+            FacesContext.getCurrentInstance().addMessage("loginForm", msg);
             return "index.xhtml";
         }
+    }
+    
+    public String modifica() {   
+        
+            if (ClienteGestion.modificar(this)) {
+            return "editaCliente.xhtml";
+        } else {  
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            "Error","Faltan Datos");
+            FacesContext.getCurrentInstance().addMessage("editaCliente", mensaje);
+            return "editaCliente.xhtml";
+        }
+           
     }
 }

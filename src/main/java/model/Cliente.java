@@ -1,61 +1,93 @@
 package model;
 
 public class Cliente {
-    private String idCliente;
-    private String nombreCliente;
-    private String generoCliente;
-    private String pwCliente;
-    private String usuarioCliente;
+    private String cedula;
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private String telefono;
+    private String correo;
+    private String usuario;
+    private String clave;
 
-    public Cliente(String idCliente, String nombreCliente, String generoCliente, String pwCliente, String usuarioCliente) {
-        this.idCliente = idCliente;
-        this.nombreCliente = nombreCliente;
-        this.generoCliente = generoCliente;
-        this.pwCliente = pwCliente;
-        this.usuarioCliente = usuarioCliente;
+    public String getCedula() {
+        return cedula;
     }
 
-    public String getUsuarioCliente() {
-        return usuarioCliente;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
-    public void setUsuarioCliente(String usuarioCliente) {
-        this.usuarioCliente = usuarioCliente;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getIdCliente() {
-        return idCliente;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setIdCliente(String clienteId) {
-        this.idCliente = clienteId;
+    public String getApellido1() {
+        return apellido1;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
     }
 
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
+    public String getApellido2() {
+        return apellido2;
     }
 
-    public String getGeneroCliente() {
-        return generoCliente;
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
     }
 
-    public void setGeneroCliente(String generoCliente) {
-        this.generoCliente = generoCliente;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public String getPwCliente() {
-        return pwCliente;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public void setPwCliente(String pwCliente) {
-        this.pwCliente = pwCliente;
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public Cliente() {
     }
+
+    public Cliente(String cedula, String nombre, String apellido1, String apellido2, String telefono, String correo, String usuario, String clave) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.usuario = usuario;
+        this.clave = clave;
+    }
+
+    
     
 }
